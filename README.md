@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Pop Movie
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Pop Movie is a React application for discovering movies with the [OMDb API](https://www.omdbapi.com/), viewing movie details, and keeping a personal list of watched movies with ratings.
 
-## Available Scripts
+This project was built as a hands-on React portfolio project, with a focus on reusable components, API integration, and managing application state.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Search for movies by title
+- View movie details, including the plot, cast, genre, runtime, and IMDb rating
+- Rate movies and add them to a watched list
+- Review watched movies with summary statistics
+- Remove movies from the watched list
+- Loading and error states for API requests
+- Scrollable movie lists
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React
+- JavaScript
+- CSS
+- OMDb API
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js and npm
+- An API key from [OMDb API](https://www.omdbapi.com/apikey.aspx)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository and move into the project directory.
+2. Install dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. Create a `.env` file in the project root and add your OMDb API key:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```env
+   REACT_APP_OMDB_API_KEY=YOUR_API_KEY
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   Replace `YOUR_API_KEY` with your own key. Do not commit `.env`; it is excluded by `.gitignore`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Start the development server:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm start
+   ```
 
-## Learn More
+The app will be available at `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Production Build
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create an optimized production build with:
 
-### Code Splitting
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The generated static files are written to the `build` directory.
 
-### Analyzing the Bundle Size
+## Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The watched list is currently stored in React state and is cleared when the page is reloaded.
+- Create React App embeds `REACT_APP_*` variables in the client-side bundle. The OMDb key can therefore be seen by users of a deployed site. For a public production deployment, consider routing API requests through a backend or serverless function and storing the key server-side.
